@@ -1,0 +1,1707 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Redis的安装与介绍, Faber Blog">
+    <meta name="description" content="一、Redis介绍Redis是当前比较热门的NOSQL系统之一，它是一个key-value存储系统。和Memcache类似，但很大程度补偿了Memcache的不足，它支持存储的value类型相对更多，包括string、list、set、zs">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Redis的安装与介绍 | Faber Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<link rel="alternate" href="/atom.xml" title="Faber Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Faber Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Faber Blog</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Redis的安装与介绍
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/redis/">
+                                <span class="chip bg-color">redis</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Nosql/" class="post-category">
+                                Nosql
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-11-15
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    16 分
+                </div>
+                
+				
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+            
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="一、Redis介绍"><a href="#一、Redis介绍" class="headerlink" title="一、Redis介绍"></a>一、Redis介绍</h3><p>Redis是当前比较热门的NOSQL系统之一，它是一个key-value存储系统。和Memcache类似，但很大程度补偿了Memcache的不足，它支持存储的value类型相对更多，包括string、list、set、zset和hash。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作。在此基础上，Redis支持各种不同方式的排序。<br><br>和Memcache一样，Redis数据都是缓存在计算机内存中，不同的是，Memcache只能将数据缓存到内存中，无法自动定期写入硬盘，这就表示，一断电或重启，内存清空，数据丢失。所以Memcache的应用场景适用于缓存无需持久化的数据。而Redis不同的是它会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，实现数据的持久化。</p>
+<h3 id="二、Redis的安装"><a href="#二、Redis的安装" class="headerlink" title="二、Redis的安装"></a>二、Redis的安装</h3><p>下面介绍在Linux环境下，Redis的安装与部署<br>1、首先上官网下载Redis 压缩包，地址：<a href="http://redis.io/download" target="_blank" rel="noopener">http://redis.io/download</a> 下载稳定版即可。<br>2、通过远程管理工具，将压缩包拷贝到Linux服务器中，提取和编译Redis</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">wget</span> http://download.redis.io/releases/redis-5.0.6.tar.gz
+$ <span class="token function">tar</span> xzf redis-5.0.6.tar.gz
+$ <span class="token function">cd</span> redis-5.0.6
+$ <span class="token function">make</span></code></pre>
+<p>安装结束没有报错即安装成功<br>3、为了方便管理，将Redis文件中的conf配置文件和常用命令移动到统一文件中，创建bin和redis.conf文件：</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">mkdir</span> -p /data/redis/bin
+$ <span class="token function">mkdir</span> -p /data/redis/conf
+$ <span class="token function">mv</span> /redis-5.0.6/redis.conf /data/redis/conf
+$ <span class="token function">cd</span> /redis-5.0.6/src
+$ <span class="token function">mv</span> mkreleasdhdr.sh redis-benchmark redis-check-aof redis-check-dump redis-cli redis-server /data/redis/bin</code></pre>
+<p>4、编辑conf文件，将daemonize属性改为yes（表明需要在后台运行）</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#是否在后台执行，yes：后台运行；no：不是后台运行（老版本默认）</span>
+daemonize <span class="token function">yes</span></code></pre>
+<p>5、执行<code>Redis-server</code>命令，启动Redis服务</p>
+<pre class=" language-bash"><code class="language-bash">$ /data/redis/bin/redis-server /data/redis/conf/redis.conf</code></pre>
+<p>6、可以使用内置客户端与Redis进行交互</p>
+<pre class=" language-bash"><code class="language-bash">$ /data/redis/bin/redis-cli
+$ 127.0.0.1:6379<span class="token operator">></span> </code></pre>
+<h3 id="三、Redis配置详解"><a href="#三、Redis配置详解" class="headerlink" title="三、Redis配置详解"></a>三、Redis配置详解</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">######################### 通用 #########################</span>
+<span class="token comment" spellcheck="true"># 是否在后台执行，yes：后台运行；no：不是后台运行</span>
+daemonize <span class="token function">yes</span>
+
+<span class="token comment" spellcheck="true"># 后台进程的pid文件存储位置</span>
+pidfile /var/run/redis.pid
+
+<span class="token comment" spellcheck="true"># 默认监听端口</span>
+port 6379
+
+<span class="token comment" spellcheck="true"># 在高并发的环境中，为避免慢客户端的连接问题，需要设置一个高速后台日志</span>
+tcp-backlog 511
+
+<span class="token comment" spellcheck="true"># 只接受以下绑定的IP请求</span>
+<span class="token comment" spellcheck="true"># Examples:</span>
+<span class="token comment" spellcheck="true"># bind 192.168.1.100 10.0.0.1</span>
+bind 127.0.0.1
+
+<span class="token comment" spellcheck="true"># 设置unix监听，默认为空</span>
+<span class="token comment" spellcheck="true"># unixsocket /tmp/redis.sock</span>
+<span class="token comment" spellcheck="true"># unixsocketperm 700</span>
+<span class="token comment" spellcheck="true">#客户端空闲多长时间，关闭链接，0表示不关闭</span>
+<span class="token function">timeout</span> 0
+
+<span class="token comment" spellcheck="true"># TCP keepalive.</span>
+<span class="token comment" spellcheck="true"># 如果是非零值，当失去链接时，会使用SO_KEEPALIVE发送TCP ACKs 到客户端。</span>
+<span class="token comment" spellcheck="true"># 这个参数有两个作用:</span>
+<span class="token comment" spellcheck="true"># 1.检测断点。</span>
+<span class="token comment" spellcheck="true"># 2.从网络中间设备来看，就是保持链接</span>
+<span class="token comment" spellcheck="true"># 在Linux上，设定的时间就是发送ACKs的周期。</span>
+<span class="token comment" spellcheck="true"># 注意：达到双倍的设定时间才会关闭链接。在其他内核上，周期依赖于内核设置。</span>
+<span class="token comment" spellcheck="true"># 一个比较合理的值为60s</span>
+tcp-keepalive 0
+
+<span class="token comment" spellcheck="true"># 指定日志级别，以下记录信息依次递减</span>
+<span class="token comment" spellcheck="true"># debug用于开发/测试</span>
+<span class="token comment" spellcheck="true"># verbose没debug那么详细</span>
+<span class="token comment" spellcheck="true"># notice适用于生产线</span>
+<span class="token comment" spellcheck="true"># warning只记录非常重要的信息</span>
+loglevel notice
+
+<span class="token comment" spellcheck="true">#日志文件名称，如果为stdout则输出到标准输出端，如果是以后台进程运行则不产生日志</span>
+logfile <span class="token string">""</span>
+
+<span class="token comment" spellcheck="true"># 要想启用系统日志记录器，设置一下选项为yes</span>
+<span class="token comment" spellcheck="true"># syslog-enabled no</span>
+<span class="token comment" spellcheck="true"># 指明syslog身份</span>
+<span class="token comment" spellcheck="true"># syslog-ident redis</span>
+<span class="token comment" spellcheck="true"># 指明syslog设备。必须是一个用户或者是local0 ~ local7之一</span>
+<span class="token comment" spellcheck="true"># syslog-facility local0</span>
+<span class="token comment" spellcheck="true">#设置数据库数目，第一个数据库编号为：0</span>
+databases 16
+
+<span class="token comment" spellcheck="true">######################### 快照 #########################</span>
+<span class="token comment" spellcheck="true"># 在什么条件下保存数据库到磁盘，条件可以有很多个，满足任何一个条件都会进行快照存储</span>
+<span class="token comment" spellcheck="true"># 在900秒之内有一次key的变化</span>
+save 900 1
+
+<span class="token comment" spellcheck="true"># 在300秒之内，有10个key的变化</span>
+save 300 10
+
+<span class="token comment" spellcheck="true"># 在60秒之内有10000个key变化</span>
+save 60 10000
+
+<span class="token comment" spellcheck="true"># 当持久化失败的时候，是否继续提供服务</span>
+stop-writes-on-bgsave-error <span class="token function">yes</span>
+
+<span class="token comment" spellcheck="true"># 当写入磁盘时，是否使用LZF算法压缩数据，默认为yes</span>
+rdbcompression <span class="token function">yes</span>
+
+<span class="token comment" spellcheck="true"># 是否添加CRC64校验到每个文件末尾--花费时间保证安全</span>
+rdbchecksum <span class="token function">yes</span>
+
+<span class="token comment" spellcheck="true"># 磁盘上数据库的保存名称</span>
+dbfilename dump.rdb
+
+<span class="token comment" spellcheck="true"># Redis工作目录，以上数据库保存文件和AOF日志都会写入此目录</span>
+<span class="token function">dir</span> ./
+
+<span class="token comment" spellcheck="true">######################### 主从同步 #########################</span>
+<span class="token comment" spellcheck="true"># 主从复制，当本机是slave时配置</span>
+<span class="token comment" spellcheck="true"># slaveof &lt;masterip> &lt;masterport></span>
+<span class="token comment" spellcheck="true"># 当主机需要密码验证时候配置</span>
+<span class="token comment" spellcheck="true"># masterauth &lt;master-password></span>
+<span class="token comment" spellcheck="true"># 当slave和master丢失链接，或正处于同步过程中。是否响应客户端请求</span>
+<span class="token comment" spellcheck="true"># 设置为yes表示响应</span>
+<span class="token comment" spellcheck="true"># 设置为no，直接返回"SYNC with master in progress"（正在和主服务器同步中）</span>
+slave-serve-stale-data <span class="token function">yes</span>
+
+<span class="token comment" spellcheck="true"># 设置slave是否为只读。</span>
+<span class="token comment" spellcheck="true"># 注意：即使slave设置为只读，也不能令其暴露在不受信任的网络环境中</span>
+slave-read-only <span class="token function">yes</span>
+
+<span class="token comment" spellcheck="true"># 无硬盘复制功能</span>
+repl-diskless-sync no
+
+<span class="token comment" spellcheck="true"># 等待多个slave一起来请求之间的间隔时间</span>
+repl-diskless-sync-delay 5
+
+<span class="token comment" spellcheck="true"># 设置slave给master发送ping的时间间隔</span>
+<span class="token comment" spellcheck="true"># repl-ping-slave-period 10</span>
+<span class="token comment" spellcheck="true"># 设置数据传输I/O，主机数据、ping响应超时时间，默认60s</span>
+<span class="token comment" spellcheck="true"># 这个时间一定要比repl-ping-slave-period大，否则会不断检测到超时</span>
+<span class="token comment" spellcheck="true"># repl-timeout 60</span>
+<span class="token comment" spellcheck="true"># 是否在SYNC后slave socket上禁用TCP_NODELAY？</span>
+<span class="token comment" spellcheck="true"># 如果你设置为yes，Redis会使用少量TCP报文和少量带宽发送数据给slave。</span>
+<span class="token comment" spellcheck="true"># 但是这样会在slave端出现延迟。如果使用Linux内核的默认设置，大概40毫秒。</span>
+<span class="token comment" spellcheck="true"># 如果你设置为no，那么在slave端研究就会减少但是同步带宽要增加。</span>
+<span class="token comment" spellcheck="true"># 默认我们是为低延迟优化的。</span>
+<span class="token comment" spellcheck="true"># 但是如果流量特别大或者主从服务器相距比较远，设置为yes比较合理。</span>
+repl-disable-tcp-nodelay no
+
+<span class="token comment" spellcheck="true"># 设置复制的后台日志大小。</span>
+<span class="token comment" spellcheck="true"># 复制的后台日志越大， slave 断开连接及后来可能执行部分复制花的时间就越长。</span>
+<span class="token comment" spellcheck="true"># 后台日志在至少有一个 slave 连接时，仅仅分配一次。</span>
+<span class="token comment" spellcheck="true"># repl-backlog-size 1mb</span>
+<span class="token comment" spellcheck="true"># 在 master 不再连接 slave 后，后台日志将被释放。下面的配置定义从最后一个 slave 断开连接后需要释放的时间（秒）。</span>
+<span class="token comment" spellcheck="true"># 0 意味着从不释放后台日志</span>
+<span class="token comment" spellcheck="true"># repl-backlog-ttl 3600</span>
+<span class="token comment" spellcheck="true"># 设置slave优先级，默认为100</span>
+<span class="token comment" spellcheck="true"># 当主服务器不能正确工作的时候，数字低的首先被提升为主服务器，但是0是禁用选择</span>
+slave-priority 100
+
+<span class="token comment" spellcheck="true"># 如果少于 N 个 slave 连接，且延迟时间 &lt;=M 秒，则 master 可配置停止接受写操作。</span>
+<span class="token comment" spellcheck="true"># 例如需要至少 3 个 slave 连接，且延迟 &lt;=10 秒的配置：</span>
+<span class="token comment" spellcheck="true"># min-slaves-to-write 3</span>
+<span class="token comment" spellcheck="true"># min-slaves-max-lag 10</span>
+<span class="token comment" spellcheck="true"># 设置 0 为禁用</span>
+<span class="token comment" spellcheck="true"># 默认 min-slaves-to-write 为 0 （禁用）， min-slaves-max-lag 为 10</span>
+
+<span class="token comment" spellcheck="true">######################### 安全 #########################</span>
+<span class="token comment" spellcheck="true"># 设置客户端连接密码，因为Redis响应速度可以达到每秒100w次，所以密码要特别复杂</span>
+<span class="token comment" spellcheck="true"># requirepass 1413</span>
+<span class="token comment" spellcheck="true"># 命令重新命名，或者禁用。</span>
+<span class="token comment" spellcheck="true"># 重命名命令为空字符串可以禁用一些危险命令比如：FLUSHALL删除所有数据</span>
+<span class="token comment" spellcheck="true"># 需要注意的是，写入AOF文件或传送给slave的命令别名也许会引起一些问题</span>
+<span class="token comment" spellcheck="true"># rename-command CONFIG ""</span>
+<span class="token comment" spellcheck="true"># 设置客户端连接密码，因为Redis响应速度可以达到每秒100w次，所以密码要特别复杂</span>
+requirepass 1413
+
+<span class="token comment" spellcheck="true"># 命令重新命名，或者禁用。</span>
+<span class="token comment" spellcheck="true"># 重命名命令为空字符串可以禁用一些危险命令比如：FLUSHALL删除所有数据</span>
+<span class="token comment" spellcheck="true"># 需要注意的是，写入AOF文件或传送给slave的命令别名也许会引起一些问题</span>
+<span class="token comment" spellcheck="true"># rename-command CONFIG ""</span>
+
+<span class="token comment" spellcheck="true">######################### 限制 #########################</span>
+<span class="token comment" spellcheck="true"># 设置最多链接客户端数量，默认为10000。</span>
+<span class="token comment" spellcheck="true"># 实际可以接受的请求数目为设置值减去32，这32是Redis为内部文件描述符保留的</span>
+<span class="token comment" spellcheck="true"># maxclients 10000</span>
+<span class="token comment" spellcheck="true"># 设置最多链接客户端数量，默认为10000。</span>
+<span class="token comment" spellcheck="true"># 实际可以接受的请求数目为设置值减去32，这32是Redis为内部文件描述符保留的</span>
+<span class="token comment" spellcheck="true"># maxclients 10000</span>
+<span class="token comment" spellcheck="true"># 设置最大使用内存数量，在把Redis当作LRU缓存时特别有用。</span>
+<span class="token comment" spellcheck="true"># 设置的值要比系统能使用的值要小</span>
+<span class="token comment" spellcheck="true"># 因为当启用删除算法时，slave输出缓存也要占用内存</span>
+<span class="token comment" spellcheck="true"># maxmemory &lt;bytes></span>
+<span class="token comment" spellcheck="true">#达到最大内存限制时，使用何种删除算法</span>
+<span class="token comment" spellcheck="true"># volatile-lru  使用LRU算法移除带有过期标致的key</span>
+<span class="token comment" spellcheck="true"># allkeys-lru -> 使用LRU算法移除任何key</span>
+<span class="token comment" spellcheck="true"># volatile-random -> 随机移除一个带有过期标致的key</span>
+<span class="token comment" spellcheck="true"># allkeys-random ->  随机移除一个key</span>
+<span class="token comment" spellcheck="true"># volatile-ttl -> 移除最近要过期的key</span>
+<span class="token comment" spellcheck="true"># noeviction -> 不删除key，当有写请求时，返回错误</span>
+<span class="token comment" spellcheck="true">#默认设置为volatile-lru</span>
+<span class="token comment" spellcheck="true"># maxmemory-policy noeviction</span>
+<span class="token comment" spellcheck="true"># LRU和最小TTL算法没有精确的实现</span>
+<span class="token comment" spellcheck="true"># 为了节省内存只在一个样本范围内选择一个最近最少使用的key，可以设置这个样本大小</span>
+<span class="token comment" spellcheck="true"># maxmemory-samples 5</span>
+
+<span class="token comment" spellcheck="true">######################### AO模式 #########################</span>
+<span class="token comment" spellcheck="true"># AOF和RDB持久化可以同时启用</span>
+<span class="token comment" spellcheck="true"># Redis启动时候会读取AOF文件，AOF文件有更好的持久化保证</span>
+appendonly no
+
+<span class="token comment" spellcheck="true"># AOF的保存名称，默认为appendonly.aof</span>
+appendfilename <span class="token string">"appendonly.aof"</span>
+
+<span class="token comment" spellcheck="true"># 设置何时写入追加日志，又三种模式</span>
+<span class="token comment" spellcheck="true"># no：表示由操作系统决定何时写入。性能最好，但可靠性最低</span>
+<span class="token comment" spellcheck="true"># everysec：表示每秒执行一次写入。折中方案，推荐</span>
+<span class="token comment" spellcheck="true"># always：表示每次都写入磁盘。性能最差，比上面的安全一些</span>
+<span class="token comment" spellcheck="true"># appendfsync always</span>
+appendfsync everysec
+
+<span class="token comment" spellcheck="true"># appendfsync no</span>
+<span class="token comment" spellcheck="true"># 当AOF同步策略设定为alway或everysec</span>
+<span class="token comment" spellcheck="true"># 当后台存储进程（后台存储或者AOF日志后台写入）会产生很多磁盘开销</span>
+<span class="token comment" spellcheck="true"># 某些Linux配置会使Redis因为fsync()调用产生阻塞很久</span>
+<span class="token comment" spellcheck="true"># 现在还没有修复补丁，甚至使用不同线程进行fsync都会阻塞我们的同步write(2)调用。</span>
+<span class="token comment" spellcheck="true"># 为了缓解这个问题，使用以下选项在一个BGSAVE或BGREWRITEAOF运行的时候</span>
+<span class="token comment" spellcheck="true"># 可以阻止fsync()在主程序中被调用，</span>
+no-appendfsync-on-rewrite no
+
+<span class="token comment" spellcheck="true"># AOF自动重写（合并命令，减少日志大小）</span>
+<span class="token comment" spellcheck="true"># 当AOF日志大小增加到一个特定比率，Redis调用BGREWRITEAOF自动重写日志文件</span>
+<span class="token comment" spellcheck="true"># 原理：Redis 会记录上次重写后AOF文件的文件大小。</span>
+<span class="token comment" spellcheck="true"># 如果刚启动，则记录启动时AOF大小</span>
+<span class="token comment" spellcheck="true"># 这个基本大小会用来和当前大小比较。如果当前大小比特定比率大，就会触发重写。</span>
+<span class="token comment" spellcheck="true"># 你也需要指定一个AOF需要被重写的最小值，这样会避免达到了比率。</span>
+<span class="token comment" spellcheck="true"># 但是AOF文件还很小的情况下重写AOF文件。</span>
+<span class="token comment" spellcheck="true"># 设置为0禁用自动重写</span>
+auto-aof-rewrite-percentage 100
+auto-aof-rewrite-min-size 64mb
+
+<span class="token comment" spellcheck="true">#redis在启动时可以加载被截断的AOF文件，而不需要先执行 redis-check-aof 工具</span>
+aof-load-truncated <span class="token function">yes</span>
+
+<span class="token comment" spellcheck="true">######################### LUA脚本 #########################</span>
+<span class="token comment" spellcheck="true"># Lua脚本的最大执行时间，单位毫秒</span>
+<span class="token comment" spellcheck="true"># 超时后会报错，并且计入日志</span>
+<span class="token comment" spellcheck="true"># 当一个脚本运行时间超过了最大执行时间</span>
+<span class="token comment" spellcheck="true"># 只有SCRIPT KILL和 SHUTDOWN NOSAVE两个命令可以使用。</span>
+<span class="token comment" spellcheck="true"># SCRIPT KILL用于停止没有调用写命令的脚本。</span>
+<span class="token comment" spellcheck="true"># SHUTDOWN NOSAVE是唯一的一个，在脚本的写命令正在执行</span>
+<span class="token comment" spellcheck="true"># 用户又不想等待脚本的正常结束的情况下，关闭服务器的方法。</span>
+<span class="token comment" spellcheck="true"># 以下选项设置为0或负数就会取消脚本执行时间限制</span>
+lua-time-limit 5000
+
+<span class="token comment" spellcheck="true">####################### redis集群  ########################</span>
+
+<span class="token comment" spellcheck="true"># 是否启用集群</span>
+<span class="token comment" spellcheck="true"># cluster-enabled yes</span>
+<span class="token comment" spellcheck="true"># 集群配置文件</span>
+<span class="token comment" spellcheck="true"># 集群配置变更后会自动写入改文件</span>
+<span class="token comment" spellcheck="true"># cluster-config-file nodes-6379.conf</span>
+<span class="token comment" spellcheck="true"># 节点互连超时的阀值</span>
+<span class="token comment" spellcheck="true"># 节点超时时间，超过该时间无法连接主要Master节点后，会停止接受查询服务</span>
+<span class="token comment" spellcheck="true"># cluster-node-timeout 15000</span>
+<span class="token comment" spellcheck="true"># 控制从节点FailOver相关的设置,设为0，从节点会一直尝试启动FailOver.</span>
+<span class="token comment" spellcheck="true"># 设为正数，失联大于一定时间（factor*节点TimeOut），不再进行FailOver</span>
+<span class="token comment" spellcheck="true"># cluster-slave-validity-factor 10</span>
+<span class="token comment" spellcheck="true"># 最小从节点连接数</span>
+<span class="token comment" spellcheck="true"># cluster-migration-barrier 1</span>
+<span class="token comment" spellcheck="true"># 默认为Yes,丢失一定比例Key后（可能Node无法连接或者挂掉），集群停止接受写操作</span>
+<span class="token comment" spellcheck="true"># 设置为No，集群丢失Key的情况下仍提供查询服务</span>
+<span class="token comment" spellcheck="true"># cluster-require-full-coverage yes</span>
+
+<span class="token comment" spellcheck="true">######################### 慢查询 #########################</span>
+<span class="token comment" spellcheck="true"># Redis慢查询日志记录超过设定时间的查询，且只记录执行命令的时间</span>
+<span class="token comment" spellcheck="true"># 不记录I/O操作，比如：和客户端交互，发送回复等。</span>
+<span class="token comment" spellcheck="true"># 时间单位为微妙，1000000微妙 = 1 秒</span>
+<span class="token comment" spellcheck="true"># 设置为负数会禁用慢查询日志，设置为0会记录所有查询命令</span>
+slowlog-log-slower-than 10000
+
+<span class="token comment" spellcheck="true"># 日志长度没有限制，但是会消耗内存。超过日志长度后，最旧的记录会被移除</span>
+<span class="token comment" spellcheck="true"># 使用SLOWLOG RESET命令可以回收内存</span>
+slowlog-max-len 128
+
+<span class="token comment" spellcheck="true">######################### 延迟监测 #########################</span>
+<span class="token comment" spellcheck="true"># 系统只记录超过设定值的操作，单位是毫秒，0表示禁用该功能  </span>
+<span class="token comment" spellcheck="true"># 可以通过命令“CONFIG SET latency-monitor-threshold &lt;milliseconds>” 直接设置而不需要重启redis  </span>
+latency-monitor-threshold 0
+
+<span class="token comment" spellcheck="true">######################### 事件通知 #########################</span>
+<span class="token comment" spellcheck="true">#  当事件发生时， Redis 可以通知 Pub/Sub 客户端。</span>
+<span class="token comment" spellcheck="true">#  可以在下表中选择 Redis 要通知的事件类型。事件类型由单个字符来标识：</span>
+<span class="token comment" spellcheck="true"># K     Keyspace 事件，以 _keyspace@&lt;db>_ 的前缀方式发布</span>
+<span class="token comment" spellcheck="true"># E     Keyevent 事件，以 _keysevent@&lt;db>_ 的前缀方式发布</span>
+<span class="token comment" spellcheck="true"># g     通用事件（不指定类型），像 DEL, EXPIRE, RENAME, …</span>
+<span class="token comment" spellcheck="true"># $     String 命令</span>
+<span class="token comment" spellcheck="true"># s     Set 命令</span>
+<span class="token comment" spellcheck="true"># h     Hash 命令</span>
+<span class="token comment" spellcheck="true"># z     有序集合命令</span>
+<span class="token comment" spellcheck="true"># x     过期事件（每次 key 过期时生成）</span>
+<span class="token comment" spellcheck="true"># e     清除事件（当 key 在内存被清除时生成）</span>
+<span class="token comment" spellcheck="true"># A     g$lshzxe 的别称，因此 ”AKE” 意味着所有的事件</span>
+<span class="token comment" spellcheck="true"># notify-keyspace-events 带一个由 0 到多个字符组成的字符串参数。空字符串意思是通知被禁用。</span>
+<span class="token comment" spellcheck="true">#  例子：启用 list 和通用事件：</span>
+<span class="token comment" spellcheck="true"># notify-keyspace-events Elg</span>
+<span class="token comment" spellcheck="true">#  默认所用的通知被禁用，因为用户通常不需要改特性，并且该特性会有性能损耗。</span>
+<span class="token comment" spellcheck="true">#  注意如果你不指定至少 K 或 E 之一，不会发送任何事件。</span>
+
+notify-keyspace-events <span class="token string">""</span>
+
+<span class="token comment" spellcheck="true">#notify-keyspace-events AKE</span>
+
+<span class="token comment" spellcheck="true">######################### 高级设置 #########################</span>
+
+<span class="token comment" spellcheck="true"># 当有少量条目的时候，哈希使用高效内存数据结构。最大的条目也不能超过设定的阈值。# “少量”定义如下：</span>
+hash-max-ziplist-entries 512
+hash-max-ziplist-value 64
+
+<span class="token comment" spellcheck="true"># 和哈希编码一样，少量列表也以特殊方式编码节省内存。“少量”设定如下：</span>
+list-max-ziplist-entries 512
+list-max-ziplist-value 64
+
+<span class="token comment" spellcheck="true"># 集合只在以下情况下使用特殊编码来节省内存</span>
+<span class="token comment" spellcheck="true"># -->集合全部由64位带符号10进制整数构成的字符串组成</span>
+<span class="token comment" spellcheck="true"># 下面的选项设置这个特殊集合的大小。</span>
+set-max-intset-entries 512
+
+<span class="token comment" spellcheck="true"># 当有序集合的长度和元素设定为以下数字时，又特殊编码节省内存</span>
+zset-max-ziplist-entries 128
+zset-max-ziplist-value 64
+
+<span class="token comment" spellcheck="true"># HyperLogLog 稀疏表示字节限制</span>
+<span class="token comment" spellcheck="true"># 这个限制包含了16个字节的头部，当一个HyperLogLog使用sparse representation</span>
+<span class="token comment" spellcheck="true"># 超过了这个显示，它就会转换到dense representation上</span>
+hll-sparse-max-bytes 3000
+
+<span class="token comment" spellcheck="true"># 哈希刷新使用每100个CPU毫秒中的1毫秒来帮助刷新主哈希表（顶级键值映射表）。</span>
+<span class="token comment" spellcheck="true">#  Redis哈希表使用延迟刷新机制，越多操作，越多刷新。</span>
+<span class="token comment" spellcheck="true"># 如果服务器空闲，刷新操作就不会进行，更多内存会被哈希表占用</span>
+<span class="token comment" spellcheck="true"># 默认每秒进行10次主字典刷新，释放内存。</span>
+<span class="token comment" spellcheck="true"># 如果你有硬性延迟需求，偶尔2毫秒的延迟无法忍受的话。设置为no</span>
+<span class="token comment" spellcheck="true"># 否则设置为yes</span>
+activerehashing <span class="token function">yes</span>
+
+<span class="token comment" spellcheck="true"># 客户端输出缓存限制强迫断开读取速度比较慢的客户端</span>
+<span class="token comment" spellcheck="true"># 有三种类型的限制</span>
+<span class="token comment" spellcheck="true"># normal -> 正常</span>
+<span class="token comment" spellcheck="true"># slave  -> slave和 MONITOR</span>
+<span class="token comment" spellcheck="true"># pubsub -> 客户端至少订阅了一个频道或者模式</span>
+<span class="token comment" spellcheck="true"># 客户端输出缓存限制语法如下（时间单位：秒）</span>
+<span class="token comment" spellcheck="true"># client-output-buffer-limit &lt;类别> &lt;强制限制> &lt;软性限制> &lt;软性时间></span>
+<span class="token comment" spellcheck="true"># 达到强制限制缓存大小，立刻断开链接。</span>
+<span class="token comment" spellcheck="true"># 达到软性限制，仍然会有软性时间大小的链接时间</span>
+<span class="token comment" spellcheck="true"># 默认正常客户端无限制，只有请求后，异步客户端数据请求速度快于它能读取数据的速度</span>
+<span class="token comment" spellcheck="true"># 订阅模式和主从客户端又默认限制，因为它们都接受推送。</span>
+<span class="token comment" spellcheck="true"># 强制限制和软性限制都可以设置为0来禁用这个特性</span>
+client-output-buffer-limit normal 0 0 0
+client-output-buffer-limit slave 256mb 64mb 60
+client-output-buffer-limit pubsub 32mb 8mb 60
+
+<span class="token comment" spellcheck="true"># 设置Redis后台任务执行频率，比如清除过期键任务。</span>
+<span class="token comment" spellcheck="true"># 设置范围为1到500，默认为10.越大CPU消耗越大，延迟越小。</span>
+<span class="token comment" spellcheck="true"># 建议不要超过100</span>
+hz 10
+
+<span class="token comment" spellcheck="true"># 当子进程重写AOF文件，以下选项开启时，AOF文件会每产生32M数据同步一次。</span>
+<span class="token comment" spellcheck="true"># 这有助于更快写入文件到磁盘避免延迟</span>
+aof-rewrite-incremental-fsync <span class="token function">yes</span></code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.faber.cc" rel="external nofollow noreferrer">Faber</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.faber.cc/2019/11/15/redis1/">https://www.faber.cc/2019/11/15/redis1/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://www.faber.cc" target="_blank">Faber</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/redis/">
+                                    <span class="chip bg-color">redis</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/logo.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'ktNANb2xNOmAuRsNqbc2rg8b-gzGzoHsz',
+        appKey: 'yPnOUgxNLrcDsjpQhxsdsl9V',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'ヾﾉ≧∀≦)o 来呀！吐槽一番吧！'
+    });
+</script>
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/11/15/redis2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Redis主从配置">
+                        
+                        <span class="card-title">Redis主从配置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一、安装Redis可以参考 redis的安装与介绍
+二、修改Rdis配置文件这里用一个主库、两个从库来举例：创建主库的配置文件：（文件存放位置也最好放在指定目录下面方便查找）我在配置文件统一放置在/data/redis/conf中
+$ cd
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Nosql/" class="post-category">
+                                    Nosql
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/redis/">
+                        <span class="chip bg-color">redis</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/11/14/mianshi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Redis的三种模式">
+                        
+                        <span class="card-title">Redis的三种模式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前言Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。普遍用于目前主流的分布式架构系统中，关于redis的详细介绍，见另一篇文章：redis的安装与介绍
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Nosql/" class="post-category">
+                                    Nosql
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/redis/">
+                        <span class="chip bg-color">redis</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+    
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="https://www.faber.cc" target="_blank">Faber</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">40.3k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    window.setTimeout("siteTime()", 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "10";
+                    var startDate = "11";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:fabing_zhang@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=690156297" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 690156297" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/zfb6666" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/zfb6666" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

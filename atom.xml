@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Faber Blog</title>
+  
+  <subtitle>永不言弃</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://www.faber.cc/"/>
+  <updated>2019-11-22T01:43:01.920Z</updated>
+  <id>https://www.faber.cc/</id>
+  
+  <author>
+    <name>Faber</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机械键盘选什么轴合适</title>
+    <link href="https://www.faber.cc/2019/11/20/jianpan/"/>
+    <id>https://www.faber.cc/2019/11/20/jianpan/</id>
+    <published>2019-11-20T06:08:04.000Z</published>
+    <updated>2019-11-22T01:43:01.920Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;青轴&quot;&gt;&lt;a href=&quot;#青轴&quot; class=&quot;headerlink&quot; title=&quot;青轴&quot;&gt;&lt;/a&gt;青轴&lt;/h3&gt;&lt;p&gt;段落感最强、Click声音最大，机械感最强，是机械键盘的代表轴，需下压2.4mm才可触发，打字节奏感十足，但是声音较大，比较吵 ,
+        
+      
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="https://www.faber.cc/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="随笔" scheme="https://www.faber.cc/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis哨兵模式</title>
+    <link href="https://www.faber.cc/2019/11/15/redis3/"/>
+    <id>https://www.faber.cc/2019/11/15/redis3/</id>
+    <published>2019-11-15T07:45:21.000Z</published>
+    <updated>2019-11-22T02:28:30.183Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;一、为什么要用到哨兵&quot;&gt;&lt;a href=&quot;#一、为什么要用到哨兵&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Nosql" scheme="https://www.faber.cc/categories/Nosql/"/>
+    
+    
+      <category term="redis" scheme="https://www.faber.cc/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis集群模式</title>
+    <link href="https://www.faber.cc/2019/11/15/redis4/"/>
+    <id>https://www.faber.cc/2019/11/15/redis4/</id>
+    <published>2019-11-15T07:45:21.000Z</published>
+    <updated>2019-11-22T01:43:02.116Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;创建节点&quot;&gt;&lt;a href=&quot;#创建节点&quot; class=&quot;headerlink&quot; title=&quot;创建节点&quot;&gt;&lt;/a&gt;创建节点&lt;/h3&gt;&lt;p&gt;1.首先在 192.168.252.101机器上 /opt/redis-4.0.1目录下创建 redis-cluster
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Nosql" scheme="https://www.faber.cc/categories/Nosql/"/>
+    
+    
+      <category term="redis" scheme="https://www.faber.cc/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis主从配置</title>
+    <link href="https://www.faber.cc/2019/11/15/redis2/"/>
+    <id>https://www.faber.cc/2019/11/15/redis2/</id>
+    <published>2019-11-15T03:20:06.000Z</published>
+    <updated>2019-11-22T01:43:02.074Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;一、安装Redis&quot;&gt;&lt;a href=&quot;#一、安装Redis&quot; class=&quot;headerlink&quot; title=&quot;一、安装Redis&quot;&gt;&lt;/a&gt;一、安装Redis&lt;/h3&gt;&lt;p&gt;可以参考 &lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Nosql" scheme="https://www.faber.cc/categories/Nosql/"/>
+    
+    
+      <category term="redis" scheme="https://www.faber.cc/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis的安装与介绍</title>
+    <link href="https://www.faber.cc/2019/11/15/redis1/"/>
+    <id>https://www.faber.cc/2019/11/15/redis1/</id>
+    <published>2019-11-15T02:30:36.000Z</published>
+    <updated>2019-11-22T01:43:02.061Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;一、Redis介绍&quot;&gt;&lt;a href=&quot;#一、Redis介绍&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Nosql" scheme="https://www.faber.cc/categories/Nosql/"/>
+    
+    
+      <category term="redis" scheme="https://www.faber.cc/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis的三种模式</title>
+    <link href="https://www.faber.cc/2019/11/14/mianshi/"/>
+    <id>https://www.faber.cc/2019/11/14/mianshi/</id>
+    <published>2019-11-14T01:52:29.000Z</published>
+    <updated>2019-11-22T01:43:01.969Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;Redis是一个开源的使用ANSI
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Nosql" scheme="https://www.faber.cc/categories/Nosql/"/>
+    
+    
+      <category term="redis" scheme="https://www.faber.cc/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>十八个自然效应</title>
+    <link href="https://www.faber.cc/2019/11/12/xiaoying/"/>
+    <id>https://www.faber.cc/2019/11/12/xiaoying/</id>
+    <published>2019-11-12T03:30:39.000Z</published>
+    <updated>2019-11-22T01:43:02.269Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;酒与污水定律&quot;&gt;&lt;a href=&quot;#酒与污水定律&quot; class=&quot;headerlink&quot; title=&quot;酒与污水定律&quot;&gt;&lt;/a&gt;酒与污水定律&lt;/h1&gt;&lt;hr style=&quot;border: 1px solid #000000&quot;&gt;
+&lt;font size=&quot;4px&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="https://www.faber.cc/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="随笔" scheme="https://www.faber.cc/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos7下Samba服务安装与配置</title>
+    <link href="https://www.faber.cc/2019/11/12/samba/"/>
+    <id>https://www.faber.cc/2019/11/12/samba/</id>
+    <published>2019-11-12T02:08:16.000Z</published>
+    <updated>2019-11-22T02:51:48.060Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1-Samba简介&quot;&gt;&lt;a href=&quot;#1-Samba简介&quot; class=&quot;headerlink&quot; title=&quot;1. Samba简介&quot;&gt;&lt;/a&gt;1.
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.faber.cc/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://www.faber.cc/tags/Linux/"/>
+    
+      <category term="samba" scheme="https://www.faber.cc/tags/samba/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx日志简析</title>
+    <link href="https://www.faber.cc/2019/11/11/ng/"/>
+    <id>https://www.faber.cc/2019/11/11/ng/</id>
+    <published>2019-11-11T08:09:11.000Z</published>
+    <updated>2019-11-22T01:43:02.021Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1、日志简介&quot;&gt;&lt;a href=&quot;#1、日志简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="nginx" scheme="https://www.faber.cc/categories/nginx/"/>
+    
+    
+      <category term="nginx" scheme="https://www.faber.cc/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux系统磁盘分区、挂载</title>
+    <link href="https://www.faber.cc/2019/11/11/hd/"/>
+    <id>https://www.faber.cc/2019/11/11/hd/</id>
+    <published>2019-11-11T06:51:40.000Z</published>
+    <updated>2019-11-22T01:43:01.904Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;一、运行fdisk -l命令查看实例上的数据盘。执行命令后，如果不存在/dev/vdb，表示您的实例没有数据盘。确认数据盘是否已挂载。&lt;br&gt;    依次运行以下命令，创建一个单分区数据盘。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;运行fdisk -u
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.faber.cc/categories/Linux/"/>
+    
+    
+      <category term="分区" scheme="https://www.faber.cc/tags/%E5%88%86%E5%8C%BA/"/>
+    
+      <category term="Linux" scheme="https://www.faber.cc/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>60个有趣的经济学原则</title>
+    <link href="https://www.faber.cc/2019/10/24/jingji/"/>
+    <id>https://www.faber.cc/2019/10/24/jingji/</id>
+    <published>2019-10-24T02:39:21.000Z</published>
+    <updated>2019-11-22T01:43:01.948Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、蓝斯登原则&quot;&gt;&lt;a href=&quot;#1、蓝斯登原则&quot; class=&quot;headerlink&quot; title=&quot;1、蓝斯登原则&quot;&gt;&lt;/a&gt;1、蓝斯登原则&lt;/h2&gt;&lt;hr style=&quot;border: 1px solid #000000&quot;&gt;
+&lt;font
+        
+      
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="https://www.faber.cc/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="随笔" scheme="https://www.faber.cc/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="定律" scheme="https://www.faber.cc/tags/%E5%AE%9A%E5%BE%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOs7 安装 Mysql5.7</title>
+    <link href="https://www.faber.cc/2019/10/16/centos7-an-zhuang-mysql5-7/"/>
+    <id>https://www.faber.cc/2019/10/16/centos7-an-zhuang-mysql5-7/</id>
+    <published>2019-10-16T02:14:19.000Z</published>
+    <updated>2019-11-22T01:43:01.773Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1、下载mysql源安装包&quot;&gt;&lt;a href=&quot;#1、下载mysql源安装包&quot; class=&quot;headerlink&quot; title=&quot;1、下载mysql源安装包&quot;&gt;&lt;/a&gt;1、下载mysql源安装包&lt;/h3&gt;&lt;pre class=&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="https://www.faber.cc/categories/Mysql/"/>
+    
+    
+      <category term="Mysql" scheme="https://www.faber.cc/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTPS之acme.sh申请证书</title>
+    <link href="https://www.faber.cc/2019/10/15/acme/"/>
+    <id>https://www.faber.cc/2019/10/15/acme/</id>
+    <published>2019-10-15T08:25:00.000Z</published>
+    <updated>2019-11-22T01:43:01.811Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;一个纯粹用Shell（Unix shell）语言编写的ACME协议客户端。完整的ACME协议实施。 支持ACME v1和ACME v2 支持ACME v2通配符证书简单，功能强大且易于使用。你只需要3分钟就可以学习它。Let’s
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SSL" scheme="https://www.faber.cc/categories/SSL/"/>
+    
+    
+      <category term="SSL" scheme="https://www.faber.cc/tags/SSL/"/>
+    
+      <category term="https" scheme="https://www.faber.cc/tags/https/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>书单推荐</title>
+    <link href="https://www.faber.cc/2019/10/14/books/"/>
+    <id>https://www.faber.cc/2019/10/14/books/</id>
+    <published>2019-10-14T15:25:00.000Z</published>
+    <updated>2019-11-22T01:43:01.827Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;序言：本人挺喜欢看书的，只是有时候没时间看，或者没有静下心来看，不过倒是收集了不少书，以后有时间了静下心来慢慢看，收藏也是一种艺术。如果有不错的书籍，可以通过底部的联系方式推荐给我。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="https://www.faber.cc/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="随笔" scheme="https://www.faber.cc/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql常用命令</title>
+    <link href="https://www.faber.cc/2019/10/14/mysql/"/>
+    <id>https://www.faber.cc/2019/10/14/mysql/</id>
+    <published>2019-10-14T15:25:00.000Z</published>
+    <updated>2019-11-22T01:43:01.992Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1-创建用户&quot;&gt;&lt;a href=&quot;#1-创建用户&quot; class=&quot;headerlink&quot; title=&quot;1.创建用户&quot;&gt;&lt;/a&gt;1.创建用户&lt;/h3&gt;&lt;pre class=&quot; language-bash&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="https://www.faber.cc/categories/Mysql/"/>
+    
+    
+      <category term="Mysql" scheme="https://www.faber.cc/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Drone ci for Gitea cicd工作流</title>
+    <link href="https://www.faber.cc/2019/10/14/cicd/"/>
+    <id>https://www.faber.cc/2019/10/14/cicd/</id>
+    <published>2019-10-14T06:25:00.000Z</published>
+    <updated>2019-11-22T01:43:01.842Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Gitea官网 &lt;a href=&quot;https://docs.gitea.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://docs.gitea.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Gitea
+        
+      
+    
+    </summary>
+    
+    
+      <category term="CI/CD" scheme="https://www.faber.cc/categories/CI-CD/"/>
+    
+    
+      <category term="持续集成" scheme="https://www.faber.cc/tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+    
+      <category term="CI/CD" scheme="https://www.faber.cc/tags/CI-CD/"/>
+    
+      <category term="Gitea" scheme="https://www.faber.cc/tags/Gitea/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git升级到指定版本</title>
+    <link href="https://www.faber.cc/2019/10/14/git/"/>
+    <id>https://www.faber.cc/2019/10/14/git/</id>
+    <published>2019-10-14T06:25:00.000Z</published>
+    <updated>2019-11-22T01:43:01.890Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;系统Centos 7.2&lt;/li&gt;
+&lt;li&gt;Git版本升级（查看版本信息 git version）&lt;/li&gt;
+&lt;li&gt;旧版本：git version 1.8.3&lt;/li&gt;
+&lt;li&gt;新版本：git version
+        
+      
+    
+    </summary>
+    
+    
+      <category term="git" scheme="https://www.faber.cc/categories/git/"/>
+    
+    
+      <category term="git" scheme="https://www.faber.cc/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>公共DNS收集</title>
+    <link href="https://www.faber.cc/2019/10/13/1/"/>
+    <id>https://www.faber.cc/2019/10/13/1/</id>
+    <published>2019-10-13T01:25:00.000Z</published>
+    <updated>2019-11-22T01:43:01.440Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;Public-DNS-★★★★★（推荐）&quot;&gt;&lt;a href=&quot;#Public-DNS-★★★★★（推荐）&quot; class=&quot;headerlink&quot; title=&quot;Public DNS+ ★★★★★（推荐）&quot;&gt;&lt;/a&gt;Public DNS+
+        
+      
+    
+    </summary>
+    
+    
+      <category term="网络" scheme="https://www.faber.cc/categories/%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="DNS" scheme="https://www.faber.cc/tags/DNS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Matery 主题详细配置教程</title>
+    <link href="https://www.faber.cc/2019/10/13/3/"/>
+    <id>https://www.faber.cc/2019/10/13/3/</id>
+    <published>2019-10-13T01:25:00.000Z</published>
+    <updated>2019-11-22T01:43:01.479Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;hexo-theme-matery&quot;&gt;&lt;a href=&quot;#hexo-theme-matery&quot; class=&quot;headerlink&quot; title=&quot;hexo-theme-matery&quot;&gt;&lt;/a&gt;hexo-theme-matery&lt;/h1&gt;&lt;p&gt;转自 &lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://www.faber.cc/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="https://www.faber.cc/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos supervisor安装</title>
+    <link href="https://www.faber.cc/2019/10/13/2/"/>
+    <id>https://www.faber.cc/2019/10/13/2/</id>
+    <published>2019-10-13T01:25:00.000Z</published>
+    <updated>2019-11-22T01:43:01.462Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;解释一些让人容易疑惑名词：&quot;&gt;&lt;a href=&quot;#解释一些让人容易疑惑名词：&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="liunx" scheme="https://www.faber.cc/categories/liunx/"/>
+    
+    
+      <category term="supervisor" scheme="https://www.faber.cc/tags/supervisor/"/>
+    
+      <category term="守护进程" scheme="https://www.faber.cc/tags/%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/"/>
+    
+  </entry>
+  
+</feed>
