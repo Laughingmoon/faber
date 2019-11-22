@@ -744,10 +744,7 @@ Added user shared.</code></pre>
 </ul>
 <p>拷贝客户机文件到Samba共享文件夹下， 测试文件拷贝是否成功。<br>将文件<code>book.txt</code>拷贝到Samba共享文件夹<code>logger</code>下， 查看文件是否成功拷贝。<br><img src="/2019/11/12/samba/4.webp" alt=""></p>
 <h3 id="3-错误处理"><a href="#3-错误处理" class="headerlink" title="3. 错误处理"></a>3. 错误处理</h3><ol>
-<li>如果拷贝文件时出现<code>目标文件夹访问被拒绝</code>错误，如下图所示。此时需要检查一下Samba服务器的Selinux和防火墙配置，确认一下Selinux是否关闭，同时确认一下防火墙是否已经打开了Samba服务端口（与Samba服务相关的端口有<code>137、138、139</code>和<code>445</code>）。 最后确认一下Samba提供的共享文件夹是否具有读写权限，具体可以参考第2步和第3步配置（目录属性和Samba服务配置）。</li>
-</ol>
-<p><img src="/2019/11/12/samba/5.webp" alt=""></p>
-<ol start="2">
+<li>如果拷贝文件时出现<code>目标文件夹访问被拒绝</code>错误，如下图所示。此时需要检查一下Samba服务器的Selinux和防火墙配置，确认一下Selinux是否关闭，同时确认一下防火墙是否已经打开了Samba服务端口（与Samba服务相关的端口有<code>137、138、139</code>和<code>445</code>）。 最后确认一下Samba提供的共享文件夹是否具有读写权限，具体可以参考第2步和第3步配置（目录属性和Samba服务配置）。<br><img src="/2019/11/12/samba/5.webp" alt=""></li>
 <li>当我们要进入不同的samba目录，如：进入<code>shared</code>共享文件夹，但是这些目录都有自己的密码设置时，如果我们在点击这个目录时输入访问该目录的用户名和密码时，会提示“<strong>不允许一个用户使用一个以上用户名与服务器或共享资源的多重连接。中断与此服务器或共享资源的所有连接，然后再试一次。</strong>”出现此问题是windows自身的限制，通常我们会注销当前windows用户，然后再重新登陆samba来访问其他目录。<br><img src="/2019/11/12/samba/6.webp" alt=""><br>此时，我们可以打开命令行界面，输入<code>net use * /del /y</code>命令来切掉本机当前的所有远程共享文件信息，然后点击其他目录输入该目录具有访问权限的用户名和密码即可正常访问了。<br><img src="/2019/11/12/samba/7.webp" alt=""><br><img src="/2019/11/12/samba/8.webp" alt=""></li>
 </ol>
 <script>
