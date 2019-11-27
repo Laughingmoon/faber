@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="nginx日志简析, Faber Blog">
-    <meta name="description" content="1、日志简介&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;nginx日志主要有两种：访问日志和错误日志。访问日志主要记录客户端访问nginx的每一个请求，格式可以自定义；错误日志主要记录客户端访问nginx出错时的日志，格式不支持自定义。">
+    <meta name="keywords" content="tar命令打包解压, Faber Blog">
+    <meta name="description" content="
+在维护配置服务器时，难免会要用到压缩，解压缩，打包，解包等，这时候tar命令就是是必不可少的一个功能强大的工具。linux中最流行的tar是麻雀虽小，五脏俱全，功能强大。tar命令可以为linux的文件和目录创建档案。利用tar，可以为某">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>nginx日志简析 | Faber Blog</title>
+    <title>tar命令打包解压 | Faber Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -241,13 +242,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        nginx日志简析
+                        tar命令打包解压
                     </div>
                 </div>
             </div>
@@ -258,10 +259,99 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -270,8 +360,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/nginx/">
-                                <span class="chip bg-color">nginx</span>
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
                             </a>
                         
                     </div>
@@ -282,8 +372,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/nginx/" class="post-category">
-                                nginx
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
                             </a>
                         
                     </div>
@@ -295,7 +385,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-11
+                    2019-11-27
                 </div>
                 
 
@@ -304,7 +394,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.5k
                 </div>
                 
 
@@ -327,206 +417,86 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、日志简介"><a href="#1、日志简介" class="headerlink" title="1、日志简介"></a>1、日志简介</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;nginx日志主要有两种：<strong>访问日志</strong>和<strong>错误日志</strong>。访问日志主要记录客户端访问nginx的每一个请求，格式可以自定义；错误日志主要记录客户端访问nginx出错时的日志，格式不支持自定义。两种日志都可以选择性关闭。通过访问日志，你可以得到用户地域来源、跳转来源、使用终端、某个URL访问量等相关信息；通过错误日志，你可以得到系统某个服务或server的性能瓶颈等。因此，将日志好好利用，你可以得到很多有价值的信息。</p>
-<h3 id="2、访问日志"><a href="#2、访问日志" class="headerlink" title="2、访问日志"></a>2、访问日志</h3><pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>Access.log<span class="token punctuation">]</span>
-log_format  main  <span class="token string">'<span class="token variable">$remote_addr</span> <span class="token variable">$remote_user</span> [<span class="token variable">$time_local</span>] "<span class="token variable">$request</span>" <span class="token variable">$http_host</span> '</span>
-                  <span class="token string">'<span class="token variable">$status</span> <span class="token variable">$upstream_status</span> <span class="token variable">$body_bytes_sent</span> "<span class="token variable">$http_referer</span>" '</span>
-                  <span class="token string">'"<span class="token variable">$http_user_agent</span>" <span class="token variable">$ssl_protocol</span> <span class="token variable">$ssl_cipher</span> <span class="token variable">$upstream_addr</span> '</span>
-                  <span class="token string">'<span class="token variable">$request_time</span> <span class="token variable">$upstream_response_time</span>'</span><span class="token punctuation">;</span></code></pre>
-<table>
-  <tbody><tr>
-    <th>变量名称</th>
-    <th>变量描述</th>
-    <th>举例说明</th>
-  </tr>
-  <tr>
-    <td>$remote_addr</td>
-    <td>客户端地址</td>
-    <td>113.140.15.90</td>
-  </tr>
-  <tr>
-    <td>$remote_user</td>
-    <td>客户端用户名称</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>$time_local</td>
-    <td>访问时间和时区</td>
-    <td>18/Jul/2012:17:00:01 +0800</td>
-  </tr>
-  <tr>
-    <td>$request</td>
-    <td>请求的URI和HTTP协议</td>
-    <td>"GET /pa/img/home/logo-alipay-t.png HTTP/1.1"</td>
-  </tr>
-  <tr>
-    <td>$http_host</td>
-    <td>请求地址，即浏览器中你输入的地址（IP或域名）</td>
-    <td>img.alipay.com<br>10.253.70.103</td>
-  </tr>
-  <tr>
-    <td>$status</td>
-    <td>HTTP请求状态</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>$upstream_status</td>
-    <td>upstream状态</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>$body_bytes_sent</td>
-    <td>发送给客户端文件内容大小</td>
-    <td>547</td>
-  </tr>
-  <tr>
-    <td>$http_referer</td>
-    <td>跳转来源</td>
-    <td>"https://cashier.alipay.com.../"</td>
-  </tr>
-  <tr>
-    <td>$http_user_agent</td>
-    <td>用户终端代理</td>
-    <td>"Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; SV1; GTB7.0; .NET4.0C;</td>
-  </tr>
-  <tr>
-    <td>$ssl_protocol</td>
-    <td>SSL协议版本</td>
-    <td>TLSv1</td>
-  </tr>
-  <tr>
-    <td>$ssl_cipher</td>
-    <td>交换数据中的算法</td>
-    <td>RC4-SHA</td>
-  </tr>
-  <tr>
-    <td>$upstream_addr</td>
-    <td>后台upstream的地址，即真正提供服务的主机地址</td>
-    <td>10.228.35.247:80</td>
-  </tr>
-  <tr>
-    <td>$request_time</td>
-    <td>整个请求的总时间</td>
-    <td>0.205</td>
-  </tr>
-  <tr>
-    <td>$upstream_response_time</td>
-    <td>请求过程中，upstream响应时间</td>
-    <td>0.002</td>
-  </tr>
-</tbody></table>
-
-<pre class=" language-shell"><code class="language-shell">线上实例：
-116.9.137.90 - [02/Aug/2012:14:47:12 +0800] "GET /images/XX/20100324752729.png HTTP/1.1"img.alipay.com 200 200 2038 https://cashier.alipay.com/XX/PaymentResult.htm?payNo=XX&outBizNo=2012XX "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; Tablet PC 2.0; 360SE)" TLSv1 AES128-SHA 10.228.21.237:80 0.198 0.001
-
-线下测试（$http_referer）：
-10.14.21.197 - - [14/Aug/2012:17:28:22 +0800] "GET /spanner/watch/v1?--db=ztg-1&--mode=compare&--index=status&--option=&--cluster=whole&-F=2012%2F8%2F12-00%3A00%3A00&-T=%2B2880&-i=1&-n=0&_=1344936501292 HTTP/1.1" 200 94193 "http://spanner.alipay.net/optionFrame/history.html" "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.60 Safari/537.1"</code></pre>
-<h3 id="3、错误日志"><a href="#3、错误日志" class="headerlink" title="3、错误日志"></a>3、错误日志</h3><table>
-  <tbody><tr>
-    <th>错误信息</th>
-    <th>错误说明</th>
-  </tr>
-  <tr>
-    <td>"upstream prematurely（过早的） closed connection"</td>
-    <td>请求uri的时候出现的异常，是由于upstream还未返回应答给用户时用户断掉连接造成的，对系统没有影响，可以忽略</td>
-  </tr>
-  <tr>
-    <td>"recv() failed (104: Connection reset by peer)"</td>
-    <td>（1）服务器的并发连接数超过了其承载量，服务器会将其中一些连接Down掉；<br> （2）客户关掉了浏览器，而服务器还在给客户端发送数据；<br>（3）浏览器端按了Stop</td>
-  </tr>
-  <tr>
-    <td>"(111: Connection refused) while connecting to upstream"</td>
-    <td>用户在连接时，若遇到后端upstream挂掉或者不通，会收到该错误</td>
-  </tr>
-  <tr>
-    <td>"(111: Connection refused) while reading response header from upstream"</td>
-    <td>用户在连接成功后读取数据时，若遇到后端upstream挂掉或者不通，会收到该错误</td>
-  </tr>
-  <tr>
-    <td>"(111: Connection refused) while sending request to upstream"</td>
-    <td>Nginx和upstream连接成功后发送数据时，若遇到后端upstream挂掉或者不通，会收到该错误</td>
-  </tr>
-  <tr>
-    <td>"(110: Connection timed out) while connecting to upstream"</td>
-    <td>nginx连接后面的upstream时超时</td>
-  </tr>
-  <tr>
-    <td>"(110: Connection timed out) while reading upstream"</td>
-    <td>nginx读取来自upstream的响应时超时</td>
-  </tr>
-  <tr>
-    <td>"(110: Connection timed out) while reading response header from upstream"</td>
-    <td>nginx读取来自upstream的响应头时超时</td>
-  </tr>
-  <tr>
-    <td>"(110: Connection timed out) while reading upstream"</td>
-    <td>nginx读取来自upstream的响应时超时</td>
-  </tr>
-  <tr>
-    <td>"(104: Connection reset by peer) while connecting to upstream"</td>
-    <td>upstream发送了RST，将连接重置</td>
-  </tr>
-  <tr>
-    <td>"upstream sent invalid header while reading response header from upstream"</td>
-    <td>upstream发送的响应头无效</td>
-  </tr>
-  <tr>
-    <td>"upstream sent no valid HTTP/1.0 header while reading response header from upstream"</td>
-    <td>upstream发送的响应头无效</td>
-  </tr>
-  <tr>
-    <td>"client intended to send too large body"</td>
-    <td>用于设置允许接受的客户端请求内容的最大值，默认值是1M，client发送的body超过了设置值</td>
-  </tr>
-  <tr>
-    <td>"reopening logs"</td>
-    <td>用户发送kill  -USR1命令</td>
-  </tr>
-  <tr>
-    <td>"gracefully shutting down",</td>
-    <td>用户发送kill  -WINCH命令</td>
-  </tr>
-  <tr>
-    <td>"no servers are inside upstream"</td>
-    <td>upstream下未配置server</td>
-  </tr>
-  <tr>
-    <td>"no live upstreams while connecting to upstream"</td>
-    <td>upstream下的server全都挂了</td>
-  </tr>
-  <tr>
-    <td>"SSL_do_handshake() failed"</td>
-    <td>SSL握手失败</td>
-  </tr>
-  <tr>
-    <td>"SSL_write() failed (SSL:) while sending to client"</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>"(13: Permission denied) while reading upstream"</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>"(98: Address already in use) while connecting to upstream"</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>"(99: Cannot assign requested address) while connecting to upstream"</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>"ngx_slab_alloc() failed: no memory in SSL session shared cache"</td>
-    <td>ssl_session_cache大小不够等原因造成</td>
-  </tr>
-  <tr>
-    <td>"could not add new SSL session to the session cache while SSL handshaking"</td>
-    <td>ssl_session_cache大小不够等原因造成</td>
-  </tr>
-  <tr>
-    <td>"send() failed (111: Connection refused)"</td>
-    <td></td>
-  </tr>
-</tbody></table><script>
+                <blockquote>
+<p>在维护配置服务器时，难免会要用到压缩，解压缩，打包，解包等，这时候<code>tar</code>命令就是是必不可少的一个功能强大的工具。linux中最流行的<code>tar</code>是麻雀虽小，五脏俱全，功能强大。<br><code>tar</code>命令可以为linux的文件和目录创建档案。利用<code>tar</code>，可以为某一特定文件创建档案(备份文件)，也可以在档案中改变文件，或者向档案中加入新的文件。<code>tar</code>最初被用来在磁带上创建档案，现在，用户可以在任何设备上创建档案。利用<code>tar</code>命令，可以把一大堆的文件和目录全部打包成一个文件，这对于备份文件或将几个文件组合成为一个文件以便于网络传输是非常有用的。首先要弄清两个概念：打包和压缩。打包是指将一大堆文件或目录变成一个总的文件；压缩则是将一个大的文件通过一些压缩算法变成一个小文件。<br>为什么要区分这两个概念呢？这源于Linux中很多压缩程序只能针对一个文件进行压缩，这样当你想要压缩一大堆文件时，你得先将这一大堆文件先打成一个包(<code>tar</code>命令)，然后再用压缩程序进行压缩(<code>gzip</code>, <code>bzip2</code>命令)。<br>linux下最常用的打包程序就是<code>tar</code>了，使用tar程序打出来的包我们常称为<code>tar</code>包，<code>tar</code>包文件的命令通常都是以<code>.tar</code>结尾的。生成<code>tar</code>包后，就可以用其它的程序来进行压缩。</p>
+</blockquote>
+<h3 id="1．命令格式"><a href="#1．命令格式" class="headerlink" title="1．命令格式"></a>1．命令格式</h3><p><code>tar[必要参数][选择参数][文件]</code></p>
+<h3 id="2．命令功能"><a href="#2．命令功能" class="headerlink" title="2．命令功能"></a>2．命令功能</h3><p>用来压缩和解压文件。tar本身不具有压缩功能，它是调用压缩功能实现的。</p>
+<h3 id="3．命令参数"><a href="#3．命令参数" class="headerlink" title="3．命令参数"></a>3．命令参数</h3><p><strong>必要参数有如下：</strong></p>
+<ul>
+<li>-A 新增压缩文件到已存在的压缩</li>
+<li>-B 设置区块大小</li>
+<li>-c 建立新的压缩文件</li>
+<li>-d 记录文件的差别</li>
+<li>-r 添加文件到已经压缩的文件</li>
+<li>-u 添加改变了和现有的文件到已经存在的压缩文件</li>
+<li>-x 从压缩的文件中提取文件</li>
+<li>-t 显示压缩文件的内容</li>
+<li>-z 支持gzip解压文件</li>
+<li>-j 支持bzip2解压文件</li>
+<li>-Z 支持compress解压文件</li>
+<li>-v 显示操作过程</li>
+<li>-l 文件系统边界设置</li>
+<li>-k 保留原有文件不覆盖</li>
+<li>-m 保留文件不被覆盖</li>
+<li>-W 确认压缩文件的正确性</li>
+</ul>
+<p><strong>可选参数如下：</strong></p>
+<ul>
+<li>-b 设置区块数目</li>
+<li>-C 切换到指定目录</li>
+<li>-f 指定压缩文件</li>
+<li>–help 显示帮助信息</li>
+<li>–version 显示版本信息<h3 id="4．常见解压-压缩命令"><a href="#4．常见解压-压缩命令" class="headerlink" title="4．常见解压/压缩命令"></a>4．常见解压/压缩命令</h3></li>
+<li>tar文件格式<br>  解包：tar xvf FileName.tar<br>  打包：tar cvf FileName.tar DirName<br>  (注：tar是打包，不是压缩！)</li>
+<li>.gz文件格式<br>  解压1：gunzip FileName.gz<br>  解压2：gzip -d FileName.gz<br>  压缩：gzip FileName</li>
+<li>.tar.gz 和 .tgz<br>  解压：tar zxvf FileName.tar.gz<br>  压缩：tar zcvf FileName.tar.gz DirName</li>
+<li>.bz2文件格式<br>  解压1：bzip2 -d FileName.bz2<br>  解压2：bunzip2 FileName.bz2<br>  压缩： bzip2 -z FileName</li>
+<li>.tar.bz2文件格式<br>  解压：tar jxvf FileName.tar.bz2<br>  压缩：tar jcvf FileName.tar.bz2 DirName</li>
+<li>.bz文件格式<br>  解压1：bzip2 -d FileName.bz<br>  解压2：bunzip2 FileName.bz<br>  压缩：未知</li>
+<li>.tar.bz文件格式<br>  解压：tar jxvf FileName.tar.bz<br>  压缩：未知</li>
+<li>.Z文件格式<br>  解压：uncompress FileName.Z<br>  压缩：compress FileName</li>
+<li>.tar.Z文件格式<br>  解压：tar Zxvf FileName.tar.Z<br>  压缩：tar Zcvf FileName.tar.Z DirName</li>
+<li>.zip文件格式<br>  解压：unzip FileName.zip<br>  压缩：zip FileName.zip DirName</li>
+<li>.rar<br>  解压：rar x FileName.rar<br>  压缩：rar a FileName.rar DirName </li>
+</ul>
+<h3 id="5．使用实例"><a href="#5．使用实例" class="headerlink" title="5．使用实例"></a>5．使用实例</h3><h4 id="实例1：将文件全部打包成tar包"><a href="#实例1：将文件全部打包成tar包" class="headerlink" title="实例1：将文件全部打包成tar包"></a>实例1：将文件全部打包成tar包</h4><p>命令：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -cvf log1.tar log1.log
+<span class="token function">tar</span> -zcvf log2.tar.gz log2.log
+<span class="token function">tar</span> -jcvf log3.tar.bz2 log3.log</code></pre>
+<blockquote>
+<p>说明：<br>    <code>tar -cvf log1.tar log1.log</code>    仅打包，不压缩！<br>    <code>tar -zcvf log2.tar.gz log2.log</code>   打包后，以 <code>gzip</code> 压缩<br>    <code>tar -zcvf log.tar.bz2 log3.log</code>  打包后，以<code>bzip2</code> 压缩<br>    在参数<code>f</code> 之后的文件档名是自己取的，我们习惯上都用<code>.tar</code>来作为辨识。 如果加 <code>z</code>参数，则以 <code>.tar.gz</code>或 <code>.tgz</code>来代表<code>gzip</code> 压缩过的 <code>tar</code>包； 如果加 <code>j</code>参数，则以 <code>.tar.bz2</code>来作为tar包名。</p>
+</blockquote>
+<h4 id="实例2：查阅上述-tar包内有哪些文件"><a href="#实例2：查阅上述-tar包内有哪些文件" class="headerlink" title="实例2：查阅上述 tar包内有哪些文件"></a>实例2：查阅上述 tar包内有哪些文件</h4><p>命令：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -ztvf log2.tar.gz</code></pre>
+<blockquote>
+<p>说明：由于我们使用 gzip 压缩的log.tar.gz，所以要查阅log.tar.gz包内的文件时，就得要加上 z 这个参数了。</p>
+</blockquote>
+<h4 id="实例3：将-tar-包解压缩"><a href="#实例3：将-tar-包解压缩" class="headerlink" title="实例3：将 tar 包解压缩"></a>实例3：将 tar 包解压缩</h4><p>命令：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf /home/yiibai/log2.tar.gz</code></pre>
+<blockquote>
+<p>说明：在预设的情况下，我们可以将压缩档在任何地方解开的</p>
+</blockquote>
+<h4 id="实例4：只将-tar-内的-部分文件解压出来"><a href="#实例4：只将-tar-内的-部分文件解压出来" class="headerlink" title="实例4：只将 /tar 内的 部分文件解压出来"></a>实例4：只将 /tar 内的 部分文件解压出来</h4><p>命令：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf /home/yiibai/mylog.tar.gz log2020.log</code></pre>
+<blockquote>
+<p>说明：可以通过 <code>tar -ztvf</code>来查阅<code>tar</code> 包内的文件名称，如果单只要一个文件，就可以透过这个方式来解压部分文件！</p>
+</blockquote>
+<h4 id="实例5：文件备份下来，并且保存其权限"><a href="#实例5：文件备份下来，并且保存其权限" class="headerlink" title="实例5：文件备份下来，并且保存其权限"></a>实例5：文件备份下来，并且保存其权限</h4><p>命令：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zcvf log20.tar.gz log2018.log log2019.log</code></pre>
+<blockquote>
+<p>说明：这个 -p 的属性是很重要的，尤其是当您要保留原本文件的属性时</p>
+</blockquote>
+<h4 id="实例6：在文件夹当中，比某个日期新的文件才备份"><a href="#实例6：在文件夹当中，比某个日期新的文件才备份" class="headerlink" title="实例6：在文件夹当中，比某个日期新的文件才备份"></a>实例6：在文件夹当中，比某个日期新的文件才备份</h4><p>命令：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -N <span class="token string">"2017/11/13"</span> -zcvf log17.tar.gz /home/yiibai</code></pre>
+<h4 id="实例7：备份文件夹内容是排除部分文件"><a href="#实例7：备份文件夹内容是排除部分文件" class="headerlink" title="实例7：备份文件夹内容是排除部分文件"></a>实例7：备份文件夹内容是排除部分文件</h4><p>命令：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> --exclude project/service -zcvf project.tar.gz project/*</code></pre>
+<h4 id="实例8：压缩文件到指定目录"><a href="#实例8：压缩文件到指定目录" class="headerlink" title="实例8：压缩文件到指定目录"></a>实例8：压缩文件到指定目录</h4><p>命令：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -cvf data/project.tar.gz -C tools/back/</code></pre>
+<blockquote>
+<p>说明:添加-C 后压缩包不会包含被压缩文件的目录结构，如果不使用-C，则压缩包包含压缩文件的目录结构。</p>
+</blockquote>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -569,7 +539,7 @@ log_format  main  <span class="token string">'<span class="token variable">$remo
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.faber.cc/2019/11/11/ng/">https://www.faber.cc/2019/11/11/ng/</a>
+                    <a href="https://www.faber.cc/2019/11/27/tar/">https://www.faber.cc/2019/11/27/tar/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -607,8 +577,8 @@ log_format  main  <span class="token string">'<span class="token variable">$remo
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/nginx/">
-                                    <span class="chip bg-color">nginx</span>
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
                                 </a>
                             
                         </div>
@@ -912,83 +882,30 @@ log_format  main  <span class="token string">'<span class="token variable">$remo
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/12/samba/">
+                <a href="/2019/11/27/tar/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Centos7下Samba服务安装与配置">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="tar命令打包解压">
                         
-                        <span class="card-title">Centos7下Samba服务安装与配置</span>
+                        <span class="card-title">tar命令打包解压</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1. Samba简介Samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-12
-                        </span>
-                        <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
-                    <a href="/tags/samba/">
-                        <span class="chip bg-color">samba</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/11/11/hd/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Linux系统磁盘分区、挂载">
-                        
-                        <span class="card-title">Linux系统磁盘分区、挂载</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            一、运行fdisk -l命令查看实例上的数据盘。执行命令后，如果不存在/dev/vdb，表示您的实例没有数据盘。确认数据盘是否已挂载。    依次运行以下命令，创建一个单分区数据盘。
-
-运行fdisk -u /dev/vdb命令：分区数据盘
+在维护配置服务器时，难免会要用到压缩，解压缩，打包，解包等，这时候tar命令就是是必不可少的一个功能强大的工具。linux中最流行的tar是麻雀虽小，五脏俱全，功能强大。tar命令可以为linux的文件和目录创建档案。利用tar，可以为某
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-27
                             </span>
                         <span class="publish-author">
                             
@@ -1002,15 +919,62 @@ log_format  main  <span class="token string">'<span class="token variable">$remo
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%88%86%E5%8C%BA/">
-                        <span class="chip bg-color">分区</span>
-                    </a>
-                    
                     <a href="/tags/Linux/">
                         <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/11/20/jianpan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="机械键盘选什么轴合适">
+                        
+                        <span class="card-title">机械键盘选什么轴合适</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            青轴段落感最强、Click声音最大，机械感最强，是机械键盘的代表轴，需下压2.4mm才可触发，打字节奏感十足，但是声音较大，比较吵 , 压力克数为60g。有人将其比喻为Cherry的春天，爽快清脆的段落感如春天般舒畅。
+黑轴段落感最不明显，
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9A%8F%E7%AC%94/" class="post-category">
+                                    随笔
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9A%8F%E7%AC%94/">
+                        <span class="chip bg-color">随笔</span>
                     </a>
                     
                 </div>
@@ -1048,6 +1012,100 @@ log_format  main  <span class="token string">'<span class="token variable">$remo
 <style type="text/css">
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 

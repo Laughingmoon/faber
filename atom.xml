@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.faber.cc/"/>
-  <updated>2019-11-22T01:43:01.920Z</updated>
+  <updated>2019-11-27T03:32:20.686Z</updated>
   <id>https://www.faber.cc/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>tar命令打包解压</title>
+    <link href="https://www.faber.cc/2019/11/27/tar/"/>
+    <id>https://www.faber.cc/2019/11/27/tar/</id>
+    <published>2019-11-27T03:04:42.000Z</published>
+    <updated>2019-11-27T03:32:20.686Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;在维护配置服务器时，难免会要用到压缩，解压缩，打包，解包等，这时候&lt;code&gt;tar&lt;/code&gt;命令就是是必不可少的一个功能强大的工具。linux中最流行的&lt;code&gt;tar&lt;/code&gt;是麻雀虽小，五脏俱全，功能强大。&lt;br&gt;&lt;code&gt;tar
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.faber.cc/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://www.faber.cc/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>机械键盘选什么轴合适</title>
@@ -507,6 +535,33 @@
   </entry>
   
   <entry>
+    <title>公共DNS收集</title>
+    <link href="https://www.faber.cc/2019/10/13/1/"/>
+    <id>https://www.faber.cc/2019/10/13/1/</id>
+    <published>2019-10-13T01:25:00.000Z</published>
+    <updated>2019-11-22T01:43:01.440Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;Public-DNS-★★★★★（推荐）&quot;&gt;&lt;a href=&quot;#Public-DNS-★★★★★（推荐）&quot; class=&quot;headerlink&quot; title=&quot;Public DNS+ ★★★★★（推荐）&quot;&gt;&lt;/a&gt;Public DNS+
+        
+      
+    
+    </summary>
+    
+    
+      <category term="网络" scheme="https://www.faber.cc/categories/%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="DNS" scheme="https://www.faber.cc/tags/DNS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Centos supervisor安装</title>
     <link href="https://www.faber.cc/2019/10/13/2/"/>
     <id>https://www.faber.cc/2019/10/13/2/</id>
@@ -532,60 +587,6 @@
       <category term="supervisor" scheme="https://www.faber.cc/tags/supervisor/"/>
     
       <category term="守护进程" scheme="https://www.faber.cc/tags/%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo 搭建个人博客详细教程</title>
-    <link href="https://www.faber.cc/2019/10/13/4/"/>
-    <id>https://www.faber.cc/2019/10/13/4/</id>
-    <published>2019-10-13T01:25:00.000Z</published>
-    <updated>2019-11-22T01:43:01.490Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;1-Hexo介绍&quot;&gt;&lt;a href=&quot;#1-Hexo介绍&quot; class=&quot;headerlink&quot; title=&quot;1.Hexo介绍&quot;&gt;&lt;/a&gt;1.Hexo介绍&lt;/h3&gt;&lt;p&gt;本文会详细的介绍如何使用 Hexo 搭建个人博客。Hexo 是基于 Node.js
-        
-      
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="https://www.faber.cc/categories/hexo/"/>
-    
-    
-      <category term="hexo" scheme="https://www.faber.cc/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>公共DNS收集</title>
-    <link href="https://www.faber.cc/2019/10/13/1/"/>
-    <id>https://www.faber.cc/2019/10/13/1/</id>
-    <published>2019-10-13T01:25:00.000Z</published>
-    <updated>2019-11-22T01:43:01.440Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;Public-DNS-★★★★★（推荐）&quot;&gt;&lt;a href=&quot;#Public-DNS-★★★★★（推荐）&quot; class=&quot;headerlink&quot; title=&quot;Public DNS+ ★★★★★（推荐）&quot;&gt;&lt;/a&gt;Public DNS+
-        
-      
-    
-    </summary>
-    
-    
-      <category term="网络" scheme="https://www.faber.cc/categories/%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="DNS" scheme="https://www.faber.cc/tags/DNS/"/>
     
   </entry>
   
