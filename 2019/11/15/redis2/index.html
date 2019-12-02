@@ -900,21 +900,22 @@ repl_backlog_histlen:11681
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/15/redis4/">
+                <a href="/2019/11/15/redis3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Redis集群模式">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Redis哨兵模式">
                         
-                        <span class="card-title">Redis集群模式</span>
+                        <span class="card-title">Redis哨兵模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            创建节点1.首先在 192.168.252.101机器上 /opt/redis-4.0.1目录下创建 redis-cluster 目录
-$ mkdir /opt/redis-4.0.1/redis-cluster
-2.在 redis-clu
+                            一、为什么要用到哨兵哨兵(Sentinel)主要是为了解决在主从复制架构中出现宕机的情况,主要分为两种情况:
+
+从Redis宕机
+这个相对而言比较简单,在Redis中从库重新启动后会自动加入到主从架构中,自动完成同步数据。在Redis2.8
                         
                     </div>
                     <div class="publish-info">

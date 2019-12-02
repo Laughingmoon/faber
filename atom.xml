@@ -72,11 +72,11 @@
   </entry>
   
   <entry>
-    <title>Redis哨兵模式</title>
-    <link href="https://www.faber.cc/2019/11/15/redis3/"/>
-    <id>https://www.faber.cc/2019/11/15/redis3/</id>
+    <title>Redis集群模式</title>
+    <link href="https://www.faber.cc/2019/11/15/redis4/"/>
+    <id>https://www.faber.cc/2019/11/15/redis4/</id>
     <published>2019-11-15T07:45:21.000Z</published>
-    <updated>2019-11-22T02:28:30.183Z</updated>
+    <updated>2019-11-22T01:43:02.116Z</updated>
     
     <summary type="html">
     
@@ -84,7 +84,7 @@
       
         
         
-          &lt;h3 id=&quot;一、为什么要用到哨兵&quot;&gt;&lt;a href=&quot;#一、为什么要用到哨兵&quot; class=&quot;headerlink&quot;
+          &lt;h3 id=&quot;创建节点&quot;&gt;&lt;a href=&quot;#创建节点&quot; class=&quot;headerlink&quot; title=&quot;创建节点&quot;&gt;&lt;/a&gt;创建节点&lt;/h3&gt;&lt;p&gt;1.首先在 192.168.252.101机器上 /opt/redis-4.0.1目录下创建 redis-cluster
         
       
     
@@ -99,11 +99,11 @@
   </entry>
   
   <entry>
-    <title>Redis集群模式</title>
-    <link href="https://www.faber.cc/2019/11/15/redis4/"/>
-    <id>https://www.faber.cc/2019/11/15/redis4/</id>
+    <title>Redis哨兵模式</title>
+    <link href="https://www.faber.cc/2019/11/15/redis3/"/>
+    <id>https://www.faber.cc/2019/11/15/redis3/</id>
     <published>2019-11-15T07:45:21.000Z</published>
-    <updated>2019-11-22T01:43:02.116Z</updated>
+    <updated>2019-11-22T02:28:30.183Z</updated>
     
     <summary type="html">
     
@@ -111,7 +111,7 @@
       
         
         
-          &lt;h3 id=&quot;创建节点&quot;&gt;&lt;a href=&quot;#创建节点&quot; class=&quot;headerlink&quot; title=&quot;创建节点&quot;&gt;&lt;/a&gt;创建节点&lt;/h3&gt;&lt;p&gt;1.首先在 192.168.252.101机器上 /opt/redis-4.0.1目录下创建 redis-cluster
+          &lt;h3 id=&quot;一、为什么要用到哨兵&quot;&gt;&lt;a href=&quot;#一、为什么要用到哨兵&quot; class=&quot;headerlink&quot;
         
       
     
